@@ -17,13 +17,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mShowCount = (TextView) findViewById(R.id.show_count);
     }
-    public void showToast(View view){
-        Toast toast = Toast.makeText(this, R.string.toast_message,Toast.LENGTH_SHORT);
+
+    public void showToast(View view) {
+        Toast toast = Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT);
 
         toast.show();
     }
-    public void countUp(View view){
+
+    public void countUp(View view) {
         ++mCount;
+        if (mShowCount != null)
+            mShowCount.setText(Integer.toString(mCount));
+    }
+
+    public void cleanCount(View view) {
+        mCount = 0;
         if (mShowCount != null)
             mShowCount.setText(Integer.toString(mCount));
     }
